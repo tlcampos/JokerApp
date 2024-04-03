@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.jokerapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.jokerapp"
@@ -42,9 +42,11 @@ dependencies {
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
-    implementation ("com.github.lisawray.groupie:groupie:2.9.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("com.github.lisawray.groupie:groupie:2.9.0")
+
+    implementation("androidx.core:core-splashscreen:1.0.0-alpha01")
 
 
 
