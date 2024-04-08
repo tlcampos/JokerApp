@@ -12,16 +12,21 @@ class HomePresenter(private val view: HomeFragment) {
     // PRESENTER -> VIEW
 
     fun findAllCategories() {
+        view.showProgress()
         fakeRequest()
     }
 
-    fun onSucess(response: List<Category>){
-        val categories = mutableListOf<CategoryItem>()
-
-        for (category in response){
-            categories.add(CategoryItem(category))
-        }
+    fun onSucess(response: List<Category>) {
+        val categories = response.map { CategoryItem(it) }
         view.showCategories(categories)
+    }
+    fun onError(message: String){
+        view.showFailure(message)
+        view.hideProgress()
+    }
+
+    fun onComplete() {
+        view.hideProgress()
     }
 
     //SIMULAR UMA REQUISIÇÃO HTTP
@@ -35,6 +40,10 @@ class HomePresenter(private val view: HomeFragment) {
             )
             //Lista Pronta (response)
             onSucess(response)
-        }, 2000)
+
+            onComplete()
+            //onError("FALHA NA CONEXÃO. TENTE NOVAMENTE MAIS TARDE!")
+
+        }, 1000)
     }
 }
