@@ -7,7 +7,7 @@ import com.example.jokerapp.view.HomeFragment
 
 class HomePresenter(
     private val view: HomeFragment,
-    private val dataSource: CategoryRemoteDataSource
+    private val dataSource: CategoryRemoteDataSource = CategoryRemoteDataSource()
 ) : ListCategoryCallback {
 
     fun findAllCategories() {
