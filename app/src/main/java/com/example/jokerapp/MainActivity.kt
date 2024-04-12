@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         
         setContentView(binding.root)
 
-        val toolbar = binding.appBarMain.tollbar
+        val toolbar = binding.appBarMain.toolbar
         setSupportActionBar(toolbar)
 
         val drawerLayout = binding.drawerLayout
