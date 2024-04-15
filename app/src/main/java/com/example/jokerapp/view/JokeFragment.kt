@@ -1,7 +1,6 @@
 package com.example.jokerapp.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +12,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.jokerapp.R
 import com.example.jokerapp.model.Joke
-import com.example.jokerapp.presentation.HomePresenter
 import com.example.jokerapp.presentation.JokePresenter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.squareup.picasso.Picasso
 
 class JokeFragment : Fragment() {
 
-    companion object{
+    companion object {
         const val CATEGORY_KEY = "category"
     }
 
@@ -36,7 +35,11 @@ class JokeFragment : Fragment() {
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_joke, container, false)
     }
 
@@ -44,33 +47,34 @@ class JokeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val categoryName = arguments?.getString(CATEGORY_KEY)!!
 
-        activity?.findViewById<Toolbar>(R.id.toolbar)?.title= categoryName
+        activity?.findViewById<Toolbar>(R.id.toolbar)?.title = categoryName
 
         progressBar = view.findViewById(R.id.progress_bar)
         textView = view.findViewById(R.id.txt_joke)
+        imageView = view.findViewById(R.id.img_joke)
 
-        view.findViewById<FloatingActionButton>(R.id.fab).setOnClickListener{
+        view.findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             presenter.findBy(categoryName)
         }
 
         presenter.findBy(categoryName)
     }
 
-    fun showJoke(joke: Joke){
+    fun showJoke(joke: Joke) {
         textView.text = joke.text
-        //TODO: adicionar imagem
+        Picasso.get().load(joke.iconUrl).into(imageView)
     }
+
     fun showProgress() {
         progressBar.visibility = View.VISIBLE
     }
 
-    fun hideProgress(){
+    fun hideProgress() {
         progressBar.visibility = View.GONE
     }
 
-    fun showFailure(message: String){
-        Toast.makeText(requireContext(),message, Toast.LENGTH_SHORT).show()
+    fun showFailure(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
-
 
 }
