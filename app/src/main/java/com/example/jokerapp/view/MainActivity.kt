@@ -1,4 +1,4 @@
-package com.example.jokerapp
+package com.example.jokerapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.jokerapp.R
 import com.example.jokerapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

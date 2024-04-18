@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import com.example.jokerapp.R
 import com.example.jokerapp.model.Joke
 import com.example.jokerapp.presentation.JokeDayPresenter
@@ -29,7 +29,6 @@ class JokeDayFragment : Fragment() {
         presenter = JokeDayPresenter(this)
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,11 +41,9 @@ class JokeDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.findViewById<Toolbar>(R.id.toolbar)?.title = getString(R.string.menu_joke_day)
-
         progressBar = view.findViewById(R.id.progress_bar)
         textView = view.findViewById(R.id.txt_joke)
         imageView = view.findViewById(R.id.img_joke)
-
 
         presenter.findRandom()
     }

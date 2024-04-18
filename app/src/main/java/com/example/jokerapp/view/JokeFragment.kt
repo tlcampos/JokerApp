@@ -34,7 +34,6 @@ class JokeFragment : Fragment() {
         presenter = JokePresenter(this)
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,6 +44,7 @@ class JokeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val categoryName = arguments?.getString(CATEGORY_KEY)!!
 
         activity?.findViewById<Toolbar>(R.id.toolbar)?.title = categoryName
