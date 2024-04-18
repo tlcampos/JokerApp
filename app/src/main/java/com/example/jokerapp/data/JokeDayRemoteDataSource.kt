@@ -5,12 +5,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class JokeRemoteDataSource {
+class JokeDayRemoteDataSource {
 
-    fun findBy(categoryName: String, callback: JokeCallBack) {
+    fun findRandom(callback: JokeCallBack) {
         HTTPClient.retrofit()
             .create(ChuckNorrisAPI::class.java)
-            .findRandom(categoryName)
+            .findRandom()
             .enqueue(object : Callback<Joke>{
                 override fun onResponse(call: Call<Joke>, response: Response<Joke>) {
                     if (response.isSuccessful){
