@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/nav_joke_day"
-        android:name="com.example.jokerapp.JokeDayFragment"
+        android:name="com.example.jokerapp.view.JokeDayFragment"
         android:label="@string/menu_joke_day"
         tools:layout="@layout/fragment_joke_day" />
 
